@@ -1,0 +1,88 @@
+:root {
+    /** CSS DARK THEME PRIMARY COLORS */
+    --color-primary-100: #f44336;
+    --color-primary-200: #f95e4a;
+    --color-primary-300: #fe755f;
+    --color-primary-400: #ff8a75;
+    --color-primary-500: #ff9f8a;
+    --color-primary-600: #ffb2a1;
+  
+    /** CSS DARK THEME SURFACE COLORS */
+    --color-surface-100: #121212;
+    --color-surface-200: #282828;
+    --color-surface-300: #3f3f3f;
+    --color-surface-400: #575757;
+    --color-surface-500: #717171;
+    --color-surface-600: #8b8b8b;
+    --color-surface-700: #fff;
+  }
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    padding: 8px 12px;
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow:0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+.container h1{
+    font-size: 36px;
+    text-align: center;
+}
+.container .input-box{
+    width: 100%;
+    padding: 5px;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    padding: 10px;
+}
+.container h4{
+    font-size: 20px;
+    text-align: left;
+}
+.general{
+    padding: 10px;
+}
+.password{
+    padding: 10px;
+}
+.intro{
+    padding: 10px;
+}
+.container .btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+hr{
+    display: flex;
+    justify-content: center;
+    width: 320px;
+}

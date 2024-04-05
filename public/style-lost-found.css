@@ -1,0 +1,100 @@
+
+/* post details */
+.post-container{
+    width: 100%;
+    background: white;
+    border-radius: 6px;
+    padding: 20px;
+    font-size: 14px;
+    color: #626262;
+    margin: 20px 0;
+}
+
+.post-top{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin: 30px;
+
+}
+
+.pet-profile{
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    flex-direction: column;
+    flex-basis: 30%;
+    margin-right: 60px;
+}
+
+.pet-profile .pet-profile-img{
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.pet-info{
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+.name, .birth, .breed, .loc ,.date-posted{
+    display: flex;
+    padding: 10px;
+}
+
+.pet-info small{
+    font-weight: 600;
+    padding-right: 20px;
+}
+.pet-name , .birthdate , .pet-type, .location, .date{
+    font-size: 14px;
+}
+
+.pet-info hr{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* post-info */
+.captions-col{
+    flex-basis: 65%;
+}
+.captions{
+    max-height: 300px;
+    overflow-y: auto;
+}
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.user-profile img{
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.user-profile p {
+    margin-bottom: -2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #626262;
+}
+.user-profile .visibility{
+    font-size: 12px;
+    border: none;
+    color: #626262;
+}
+
+.reacts-container{
+    display: flex;
+    align-items: center;
+    justify-items: start;
+}
+
+.reacts-container button{
+    border: none;
+    background: none;
+    padding-left: 30px;
+}
