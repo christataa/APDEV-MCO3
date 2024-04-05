@@ -7,6 +7,7 @@ import Lost from './components/lost.component';
 import Adopt from './components/adopt.component';
 import Signup from './components/signup.component';
 import EditProfile from './components/editprofile.component';
+import About from './components/about';
 import './App.css';
 
 
@@ -23,7 +24,7 @@ function App() {
           <Route path="/lost" element={<Lost />} /> 
           <Route path="/adopt" element={<Adopt />} /> 
           <Route path="/editprofile" element={<EditProfile />} /> 
-          <Route path="*" element={<Login />} />
+          <Route path="*" element={<About />} />
         </Routes>
       </div>
     </Router>
