@@ -31,9 +31,7 @@ class signup extends Component {
         e.preventDefault();
       
         const { username, email, password, confirmPassword } = this.state;
-      
-        // Add your validation here (e.g., check if passwords match)
-      
+            
         try {
           const response = await fetch('http://localhost:3000/signup', {
             method: 'POST',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/style.css';
 import CommentsContainer from '../components/CommentsContainer';
 
@@ -6,12 +6,12 @@ class AdoptPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            likesAmount: 0, // Assuming starting likes amount is 0 for the cow post
+            likesAmount: 0,
             isLiked: false,
             isEditing: false,
-            isPostVisible: true, // State to control the visibility of the post
-            caption: `Meet [Cow's Name], a gentle and loving bovine friend ready to find a forever pasture! With a heart as big as their moo, [Cow's Name] is a [age]-year-old [breed] cow with a unique personality that shines brighter than the morning sun on a dewy meadow. This adorable cow enjoys leisurely grazing, peaceful afternoons under the shade of a big oak tree, and the occasional scratch behind the ears. [Cow's Name] is not just a cow, but a companion who appreciates the simple joys of farm life. Whether you're a seasoned farmer or someone with a sizable piece of land looking for a gentle giant to add to your family, [Cow's Name] could be the perfect match. They are up-to-date on all vaccinations, health checks, and come with a health guarantee to ensure they're ready to seamlessly join their new home. Adopting a cow is a rewarding experience that brings a lot of joy and a bit of fun moo-sic into your life. If you're ready to welcome [Cow's Name] into your heart and home, please contact us for more information on how you can adopt this lovable cow. Let's give [Cow's Name] the loving forever home they deserve!`,
-            editableCaption: '', // Temporary storage for caption while editing
+            isPostVisible: true,
+            caption: props.post ? props.post.caption : `Meet [Cow's Name], a gentle and loving bovine friend ready to find a forever pasture! With a heart as big as their moo, [Cow's Name] is a [age]-year-old [breed] cow with a unique personality that shines brighter than the morning sun on a dewy meadow. This adorable cow enjoys leisurely grazing, peaceful afternoons under the shade of a big oak tree, and the occasional scratch behind the ears. [Cow's Name] is not just a cow, but a companion who appreciates the simple joys of farm life. Whether you're a seasoned farmer or someone with a sizable piece of land looking for a gentle giant to add to your family, [Cow's Name] could be the perfect match. They are up-to-date on all vaccinations, health checks, and come with a health guarantee to ensure they're ready to seamlessly join their new home. Adopting a cow is a rewarding experience that brings a lot of joy and a bit of fun moo-sic into your life. If you're ready to welcome [Cow's Name] into your heart and home, please contact us for more information on how you can adopt this lovable cow. Let's give [Cow's Name] the loving forever home they deserve!`,
+            editableCaption: '',
         };
     }
 
@@ -39,13 +39,14 @@ class AdoptPost extends React.Component {
     };
 
     deletePost = () => {
-        this.setState({ isPostVisible: false }); // Hide the post
+        this.setState({ isPostVisible: false });
     };
 
 
     render() {
         const { likesAmount, isLiked, isEditing, caption, editableCaption, isPostVisible } = this.state;
-        const { username } = this.props;
+        const { post } = this.props;
+
         if (!isPostVisible) {
             return <div className="post-deleted-message">Post Deleted</div>;
         }
@@ -57,20 +58,17 @@ class AdoptPost extends React.Component {
                         <img src="images/cow.jpg" className="pet-profile-img"/>
                         <div className="pet-info">
                             <div className="name">
-                                <small>Name: </small> <div className="pet-name">CoWoo</div>
+                                <small>Name: </small> <div className="pet-name">{post ? post.petName : "CoWoo"}</div>
                             </div>                        
                             <span><hr/></span>
                             <div className="birth">
-                                <small>Date of Birth: </small> <div className="birthdate">12/28/2003</div>
+                                <small>Date of Birth: </small> <div className="birthdate">{post ? post.dateOfBirth : "12/28/2003"}</div>
                             </div>
                             <div className="breed"> 
-                                <small>Species/Breed: </small> <div className="pet-type">cow</div>
+                                <small>Species/Breed: </small> <div className="pet-type">{post ? post.speciesBreed : "cow"}</div>
                             </div>
                             <div className="loc"> 
-                                <small>Location: </small> <div className="location">omooshu</div>
-                            </div>
-                            <div className="date-posted">
-                                <small>Date Posted: </small> <div className="date">09/03/2024</div>
+                                <small>Location: </small> <div className="location">{post ? post.location : "omooshu"}</div>
                             </div>
                         </div>                
                     </div>
@@ -79,7 +77,7 @@ class AdoptPost extends React.Component {
                             <img src="images/profile-pic.png" className="user-img"/>
                             <div>
                                 <p>title</p>
-                                <span>{username}</span>
+                                <span>username</span>
                             </div>
                             <div className="btn-container">
                         {!isEditing && (

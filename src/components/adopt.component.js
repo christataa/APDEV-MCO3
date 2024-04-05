@@ -6,7 +6,23 @@ import AdoptPost from './adopt-post.component';
 
 
 class Adopt extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            posts: [] // Array to hold the posts data
+        };
+    }
+
+    addPost = (post) => {
+        this.setState(prevState => ({
+            posts: [...prevState.posts, post] // Add the new post to the existing posts array
+        }));
+    };
+
     render(){
+        const { posts } = this.state;
+
         return(
             <div>
     
@@ -24,9 +40,11 @@ class Adopt extends React.Component {
                         </div>           
                     </div>
         <div class="main-content">
-            <div class="write-post-container"> <AdoptPostInput /> </div>
+            <div class="write-post-container"> <AdoptPostInput addPost={this.addPost} /> </div>
             <div class="post-container">               
-                <AdoptPost />
+                {posts.map((post, index) => (
+                        <AdoptPost key={index} post={post} />
+                    ))}
             </div>    
         </div>
         

@@ -3,11 +3,56 @@ import '../styles/style.css';
 
 
 class LostPostInput extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            // Initialize state for input fields
+            title: '',
+            caption: '',
+            petName: '',
+            speciesBreed: '',
+            location: '',
+            dateOfBirth: '',
+        };
+    }
+
+    // Function to handle form submission
+    handleSubmit = (event) => {
+        event.preventDefault(); // Prevent default form submission behavior
+        // Create a new post object from the state
+        const newPost = {
+            title: this.state.title,
+            caption: this.state.caption,
+            petName: this.state.petName,
+            speciesBreed: this.state.speciesBreed,
+            location: this.state.location,
+            dateOfBirth: this.state.dateOfBirth,
+        };
+        // Call the addPost function passed down from parent
+        this.props.addPost(newPost);
+        // Clear input fields
+        this.setState({
+            title: '',
+            caption: '',
+            petName: '',
+            speciesBreed: '',
+            location: '',
+            dateOfBirth: '',
+        });
+    };
+
+    // Function to handle input changes
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
+
     render(){
         return (
             <div>
                 <div class="write-post-container">
-                            <form action="#">
+                    <form onSubmit={this.handleSubmit}>
+                        
                                 <div class="user-profile">
                                     <img src="images/profile-pic.png"/>
                                     <div>
@@ -23,24 +68,24 @@ class LostPostInput extends React.Component {
                                 </div>
                                 <div class="input-container">
                                     <div class="input-text">
-                                        Title: <input type="text" class="textarea"/> 
+                                        Title: <input type="text" name="title" value={this.state.title} onChange={this.handleChange} class="textarea"/> 
                                     </div>
                                     <div class="input-text">
-                                        Captions: <input type="text" class="textarea"/> 
+                                        Captions: <input type="text" name="caption" value={this.state.caption} onChange={this.handleChange} class="textarea"/> 
                                     </div>
                                     <div class="input-text">
-                                        Pet Name: <input type="text" class="textarea"/>
+                                        Pet Name: <input type="text" name="petName" value={this.state.petName} onChange={this.handleChange} class="textarea"/>
                                     </div>
                                     <div class="input-text">
-                                        Species / Breed: <input type="text" class="textarea"/> 
+                                        Species / Breed: <input type="text" name="speciesBreed" value={this.state.speciesBreed} onChange={this.handleChange} class="textarea"/> 
                                     </div>
                                     <div class="input-text">
-                                        Location: <input type="text" class="textarea"/>                        
+                                        Location: <input type="text" name="location" value={this.state.location} onChange={this.handleChange} class="textarea"/>                        
                                     </div>
                                     
                                     <div class="add-post-links">
                                         <div class="input-text">
-                                            Date of Birth: <input type="date"/>
+                                            Date of Birth: <input type="date" name="dateOfBirth" value={this.state.dateOfBirth} onChange={this.handleChange}/>
                                         </div> 
                                         <label for="photo-upload" class="custom-file-upload">
                                             <img src="images/add-image.png" alt="Upload photo"/> Upload Photo</label>
